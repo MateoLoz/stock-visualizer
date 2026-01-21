@@ -2,5 +2,4 @@
 
 set -e
 
-echo "running api server..."
-go run cmd/api/main.go
+docker compose up 
