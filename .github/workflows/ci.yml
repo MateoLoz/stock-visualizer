@@ -30,4 +30,4 @@ jobs:
       - name: Run health script (optional)
         run: |
           chmod +x scripts/*.sh
-          ./scripts/start.sh || true
+          ./scripts/dev.sh || true
