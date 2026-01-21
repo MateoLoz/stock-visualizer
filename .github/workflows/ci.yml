@@ -13,21 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "1.22"
-
-      - name: Verify Go version
-        run: go version
-
-      - name: Install dependencies
-        run: go mod tidy
-
       - name: Build project
-        run: go build ./...
+        run: chmod +x scripts/*.sh && ./scripts/build.sh
 
-      - name: Run health script (optional)
+      - name: Run Container
+        run: chmod +x scripts/*.sh && ./scripts/start.sh
+
+      - name: Run health script 
         run: |
           chmod +x scripts/*.sh
-          ./scripts/dev.sh || true
+          ./scripts/health-check.sh || true
